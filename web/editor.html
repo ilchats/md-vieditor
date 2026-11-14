@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src mdapp:; style-src mdapp: 'unsafe-inline'; img-src mdfile: mdapp: data: blob: https: http:; font-src mdapp: data:; media-src mdfile: https: http:; base-uri mdfile: mdapp:; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta name="color-scheme" content="light dark">
+<title>MD Vieditor</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="vditor/dist/index.css">
+<link rel="stylesheet" href="editor.css">
+<script src="vditor/dist/index.min.js"></script>
+<script src="editor.js"></script>
+</head>
+<body>
+<div id="editor"></div>
+<!-- Значки панели: подключаются заранее, чтобы Vditor не вставлял их встроенным скриптом -->
+<script id="vditorIconScript" src="vditor/dist/js/icons/ant.js"></script>
+</body>
+</html>

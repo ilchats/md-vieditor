@@ -1,0 +1,6 @@
+build/
+build.log
+selftest-window.png
+selftest-log.txt
+selftest-stderr.txt
+.DS_Store

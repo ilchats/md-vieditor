@@ -1,0 +1,97 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  html, body { background: #2f363d; }
+}
+#editor { height: 100%; }
+.vditor {
+  border: none !important;
+  border-radius: 0 !important;
+}
+.vditor-reset {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+}
+.vditor-reset img { max-width: 100%; }
+
+/* Ширина текста растёт вместе с окном, поля по краям пропорциональны ширине окна.
+   Vditor сам ограничивает текст 800 пикселями — это ограничение снято. */
+.vditor-wysiwyg > pre.vditor-reset,
+.vditor-ir > pre.vditor-reset,
+pre.vditor-sv {
+  padding-left: clamp(80px, 12vw, 320px) !important;
+  padding-right: clamp(80px, 12vw, 320px) !important;
+}
+.vditor-toolbar {
+  padding-left: clamp(80px, 12vw, 320px) !important;
+  padding-right: clamp(80px, 12vw, 320px) !important;
+}
+
+/* Таблицы: текст в ячейках переносится, поэтому таблица укладывается в ширину окна.
+   Прокрутка вбок остаётся только для очень широких таблиц. */
+.vditor-reset table td,
+.vditor-reset table th {
+  white-space: normal !important;
+  overflow-wrap: break-word;
+}
+
+/* Плавающая панель у текущего блока: значки крупнее и контрастнее, корзинка красная. */
+.vditor-wysiwyg > .vditor-panel--none {
+  opacity: 1;
+  padding: 3px;
+  border-radius: 8px;
+  background-color: var(--panel-background-color);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.28);
+}
+.vditor-wysiwyg > .vditor-panel--none .vditor-icon {
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  border-radius: 6px;
+  color: #24292f;
+}
+.vditor-wysiwyg > .vditor-panel--none .vditor-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+.vditor-wysiwyg > .vditor-panel--none .vditor-icon:hover {
+  color: #0969da;
+  background-color: rgba(9, 105, 218, 0.1);
+}
+.vditor-wysiwyg > .vditor-panel--none .vditor-icon[data-type="remove"] {
+  color: #cf222e;
+}
+.vditor-wysiwyg > .vditor-panel--none .vditor-icon[data-type="remove"]:hover {
+  color: #a40e26;
+  background-color: rgba(207, 34, 46, 0.12);
+}
+.vditor--dark .vditor-wysiwyg > .vditor-panel--none .vditor-icon {
+  color: #e6edf3;
+}
+.vditor--dark .vditor-wysiwyg > .vditor-panel--none .vditor-icon[data-type="remove"] {
+  color: #ff7b72;
+}
+/* Положение панели считает editor.js: слева от строки на поле или над блоком. */
+.vditor-wysiwyg > .vditor-panel--none {
+  transform: translate(var(--md-popover-dx, 0px), var(--md-popover-dy, 0px));
+}
+/* Поле ID у заголовка (якорь для ссылок) скрыто: без него панель заголовка узкая и встаёт слева. */
+.vditor-wysiwyg > .vditor-panel--none > span[aria-label^="ID"] {
+  display: none;
+}
+/* Поля «строк × столбцов» в панели таблицы — с рамкой, как обычные поля ввода. */
+.vditor-wysiwyg > .vditor-panel--none .vditor-input {
+  height: 26px;
+  margin: 3px 2px 0;
+  padding: 0 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: inherit;
+  text-align: center;
+  font-size: 13px;
+}
